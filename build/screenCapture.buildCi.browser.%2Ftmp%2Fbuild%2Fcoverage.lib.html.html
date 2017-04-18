@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-imap/imap/lib/Parser.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-imap/node_modules/imap/lib/Parser.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-imap">npmtest-imap (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-imap/imap/lib/Parser.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-imap/node_modules/imap/lib/Parser.js</span></h1>
     <h2>
         
         Statements: <span class="metric">6.76% <small>(37 / 547)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-imap/imap/lib/</a> &#187; Parser.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-imap/node_modules/imap/lib/</a> » Parser.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -2268,7 +2266,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var EventEmitter = require('events').EventEmitter,
     ReadableStream = require('stream').Readable
-                     || <span class="branch-1 cbranch-no" title="branch not covered" >require('readable-stream').Readable,</span>
+                     || <span class="branch-1 cbranch-no" title="branch not covered">require('readable-stream').Readable,</span>
     inherits = require('util').inherits,
     inspect = require('util').inspect;
 &nbsp;
@@ -2277,7 +2275,7 @@ var utf7 = require('utf7').imap,
 &nbsp;
 var CH_LF = 10,
     LITPLACEHOLDER = String.fromCharCode(0),
-    EMPTY_READCB = <span class="fstat-no" title="function not covered" >function(n) {</span>},
+    EMPTY_READCB = <span class="fstat-no" title="function not covered">function(n) {</span>},
     RE_INTEGER = /^\d+$/,
     RE_PRECEDING = /^(?:\* |A\d+ |\+ ?)/,
     RE_BODYLITERAL = /BODY\[(.*)\] \{(\d+)\}$/i,
@@ -2297,181 +2295,181 @@ var CH_LF = 10,
     RE_SEARCH_MODSEQ = /^(.+) \(MODSEQ (.+?)\)$/i,
     RE_LWS_ONLY = /^[ \t]*$/;
 &nbsp;
-<span class="fstat-no" title="function not covered" >function Parser(stream, debug) {</span>
-<span class="cstat-no" title="statement not covered" >  if (!(this instanceof Parser))</span>
-<span class="cstat-no" title="statement not covered" >    return new Parser(stream, debug);</span>
+<span class="fstat-no" title="function not covered">function Parser(stream, debug) {</span>
+<span class="cstat-no" title="statement not covered">  if (!(this instanceof Parser))</span>
+<span class="cstat-no" title="statement not covered">    return new Parser(stream, debug);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  EventEmitter.call(this);</span>
+<span class="cstat-no" title="statement not covered">  EventEmitter.call(this);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  this._stream = undefined;</span>
-<span class="cstat-no" title="statement not covered" >  this._body = undefined;</span>
-<span class="cstat-no" title="statement not covered" >  this._literallen = 0;</span>
-<span class="cstat-no" title="statement not covered" >  this._literals = [];</span>
-<span class="cstat-no" title="statement not covered" >  this._buffer = '';</span>
-<span class="cstat-no" title="statement not covered" >  this._ignoreReadable = false;</span>
-<span class="cstat-no" title="statement not covered" >  this.debug = debug;</span>
+<span class="cstat-no" title="statement not covered">  this._stream = undefined;</span>
+<span class="cstat-no" title="statement not covered">  this._body = undefined;</span>
+<span class="cstat-no" title="statement not covered">  this._literallen = 0;</span>
+<span class="cstat-no" title="statement not covered">  this._literals = [];</span>
+<span class="cstat-no" title="statement not covered">  this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">  this._ignoreReadable = false;</span>
+<span class="cstat-no" title="statement not covered">  this.debug = debug;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var self = this;</span>
-<span class="cstat-no" title="statement not covered" >  this._cbReadable = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    if (self._ignoreReadable)</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
-<span class="cstat-no" title="statement not covered" >    if (self._literallen &gt; 0 &amp;&amp; !self._body)</span>
-<span class="cstat-no" title="statement not covered" >      self._tryread(self._literallen);</span>
+<span class="cstat-no" title="statement not covered">  var self = this;</span>
+<span class="cstat-no" title="statement not covered">  this._cbReadable = <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">    if (self._ignoreReadable)</span>
+<span class="cstat-no" title="statement not covered">      return;</span>
+<span class="cstat-no" title="statement not covered">    if (self._literallen &gt; 0 &amp;&amp; !self._body)</span>
+<span class="cstat-no" title="statement not covered">      self._tryread(self._literallen);</span>
     else
-<span class="cstat-no" title="statement not covered" >      self._tryread();</span>
+<span class="cstat-no" title="statement not covered">      self._tryread();</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  this.setStream(stream);</span>
+<span class="cstat-no" title="statement not covered">  this.setStream(stream);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  process.nextTick(this._cbReadable);</span>
+<span class="cstat-no" title="statement not covered">  process.nextTick(this._cbReadable);</span>
 }
 inherits(Parser, EventEmitter);
 &nbsp;
-Parser.prototype.setStream = <span class="fstat-no" title="function not covered" >function(stream) {</span>
-<span class="cstat-no" title="statement not covered" >  if (this._stream)</span>
-<span class="cstat-no" title="statement not covered" >    this._stream.removeListener('readable', this._cbReadable);</span>
+Parser.prototype.setStream = <span class="fstat-no" title="function not covered">function(stream) {</span>
+<span class="cstat-no" title="statement not covered">  if (this._stream)</span>
+<span class="cstat-no" title="statement not covered">    this._stream.removeListener('readable', this._cbReadable);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (/^v0\.8\./.test(process.version)) {</span>
-<span class="cstat-no" title="statement not covered" >    this._stream = (new ReadableStream()).wrap(stream);</span>
+<span class="cstat-no" title="statement not covered">  if (/^v0\.8\./.test(process.version)) {</span>
+<span class="cstat-no" title="statement not covered">    this._stream = (new ReadableStream()).wrap(stream);</span>
 &nbsp;
     // since Readable.wrap() proxies events, we need to remove at least the
     // proxied 'error' event since this can cause problems and Parser doesn't
     // care about such events
-<span class="cstat-no" title="statement not covered" >    stream._events.error.pop();</span>
+<span class="cstat-no" title="statement not covered">    stream._events.error.pop();</span>
   } else
-<span class="cstat-no" title="statement not covered" >    this._stream = stream;</span>
+<span class="cstat-no" title="statement not covered">    this._stream = stream;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  this._stream.on('readable', this._cbReadable);</span>
+<span class="cstat-no" title="statement not covered">  this._stream.on('readable', this._cbReadable);</span>
 };
 &nbsp;
-Parser.prototype._tryread = <span class="fstat-no" title="function not covered" >function(n) {</span>
-<span class="cstat-no" title="statement not covered" >  if (this._stream.readable) {</span>
-<span class="cstat-no" title="statement not covered" >    var r = this._stream.read(n);</span>
-<span class="cstat-no" title="statement not covered" >    r &amp;&amp; this._parse(r);</span>
+Parser.prototype._tryread = <span class="fstat-no" title="function not covered">function(n) {</span>
+<span class="cstat-no" title="statement not covered">  if (this._stream.readable) {</span>
+<span class="cstat-no" title="statement not covered">    var r = this._stream.read(n);</span>
+<span class="cstat-no" title="statement not covered">    r &amp;&amp; this._parse(r);</span>
   }
 };
 &nbsp;
-Parser.prototype._parse = <span class="fstat-no" title="function not covered" >function(data) {</span>
-<span class="cstat-no" title="statement not covered" >  var i = 0, datalen = data.length, idxlf;</span>
+Parser.prototype._parse = <span class="fstat-no" title="function not covered">function(data) {</span>
+<span class="cstat-no" title="statement not covered">  var i = 0, datalen = data.length, idxlf;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (this._literallen &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >    if (this._body) {</span>
-<span class="cstat-no" title="statement not covered" >      var body = this._body;</span>
-<span class="cstat-no" title="statement not covered" >      if (datalen &gt;= this._literallen) {</span>
-<span class="cstat-no" title="statement not covered" >        var litlen = this._literallen;</span>
-<span class="cstat-no" title="statement not covered" >        i = litlen;</span>
-<span class="cstat-no" title="statement not covered" >        this._literallen = 0;</span>
-<span class="cstat-no" title="statement not covered" >        this._body = undefined;</span>
-<span class="cstat-no" title="statement not covered" >        body._read = EMPTY_READCB;</span>
-<span class="cstat-no" title="statement not covered" >        if (datalen &gt; litlen)</span>
-<span class="cstat-no" title="statement not covered" >          body.push(data.slice(0, litlen));</span>
+<span class="cstat-no" title="statement not covered">  if (this._literallen &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered">    if (this._body) {</span>
+<span class="cstat-no" title="statement not covered">      var body = this._body;</span>
+<span class="cstat-no" title="statement not covered">      if (datalen &gt;= this._literallen) {</span>
+<span class="cstat-no" title="statement not covered">        var litlen = this._literallen;</span>
+<span class="cstat-no" title="statement not covered">        i = litlen;</span>
+<span class="cstat-no" title="statement not covered">        this._literallen = 0;</span>
+<span class="cstat-no" title="statement not covered">        this._body = undefined;</span>
+<span class="cstat-no" title="statement not covered">        body._read = EMPTY_READCB;</span>
+<span class="cstat-no" title="statement not covered">        if (datalen &gt; litlen)</span>
+<span class="cstat-no" title="statement not covered">          body.push(data.slice(0, litlen));</span>
         else
-<span class="cstat-no" title="statement not covered" >          body.push(data);</span>
-<span class="cstat-no" title="statement not covered" >        body.push(null);</span>
+<span class="cstat-no" title="statement not covered">          body.push(data);</span>
+<span class="cstat-no" title="statement not covered">        body.push(null);</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        this._literallen -= datalen;</span>
-<span class="cstat-no" title="statement not covered" >        var r = body.push(data);</span>
-<span class="cstat-no" title="statement not covered" >        if (!r) {</span>
-<span class="cstat-no" title="statement not covered" >          body._read = this._cbReadable;</span>
-<span class="cstat-no" title="statement not covered" >          return;</span>
+<span class="cstat-no" title="statement not covered">        this._literallen -= datalen;</span>
+<span class="cstat-no" title="statement not covered">        var r = body.push(data);</span>
+<span class="cstat-no" title="statement not covered">        if (!r) {</span>
+<span class="cstat-no" title="statement not covered">          body._read = this._cbReadable;</span>
+<span class="cstat-no" title="statement not covered">          return;</span>
         }
-<span class="cstat-no" title="statement not covered" >        i = datalen;</span>
+<span class="cstat-no" title="statement not covered">        i = datalen;</span>
       }
     } else {
-<span class="cstat-no" title="statement not covered" >      if (datalen &gt; this._literallen)</span>
-<span class="cstat-no" title="statement not covered" >        this._literals.push(data.slice(0, this._literallen));</span>
+<span class="cstat-no" title="statement not covered">      if (datalen &gt; this._literallen)</span>
+<span class="cstat-no" title="statement not covered">        this._literals.push(data.slice(0, this._literallen));</span>
       else
-<span class="cstat-no" title="statement not covered" >        this._literals.push(data);</span>
-<span class="cstat-no" title="statement not covered" >      i = this._literallen;</span>
-<span class="cstat-no" title="statement not covered" >      this._literallen = 0;</span>
+<span class="cstat-no" title="statement not covered">        this._literals.push(data);</span>
+<span class="cstat-no" title="statement not covered">      i = this._literallen;</span>
+<span class="cstat-no" title="statement not covered">      this._literallen = 0;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  while (i &lt; datalen) {</span>
-<span class="cstat-no" title="statement not covered" >    idxlf = indexOfCh(data, datalen, i, CH_LF);</span>
-<span class="cstat-no" title="statement not covered" >    if (idxlf === -1) {</span>
-<span class="cstat-no" title="statement not covered" >      this._buffer += data.toString('utf8', i);</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">  while (i &lt; datalen) {</span>
+<span class="cstat-no" title="statement not covered">    idxlf = indexOfCh(data, datalen, i, CH_LF);</span>
+<span class="cstat-no" title="statement not covered">    if (idxlf === -1) {</span>
+<span class="cstat-no" title="statement not covered">      this._buffer += data.toString('utf8', i);</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      this._buffer += data.toString('utf8', i, idxlf);</span>
-<span class="cstat-no" title="statement not covered" >      this._buffer = this._buffer.trim();</span>
-<span class="cstat-no" title="statement not covered" >      i = idxlf + 1;</span>
+<span class="cstat-no" title="statement not covered">      this._buffer += data.toString('utf8', i, idxlf);</span>
+<span class="cstat-no" title="statement not covered">      this._buffer = this._buffer.trim();</span>
+<span class="cstat-no" title="statement not covered">      i = idxlf + 1;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      this.debug &amp;&amp; this.debug('&lt;= ' + inspect(this._buffer));</span>
+<span class="cstat-no" title="statement not covered">      this.debug &amp;&amp; this.debug('&lt;= ' + inspect(this._buffer));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (RE_PRECEDING.test(this._buffer)) {</span>
-<span class="cstat-no" title="statement not covered" >        var firstChar = this._buffer[0];</span>
-<span class="cstat-no" title="statement not covered" >        if (firstChar === '*')</span>
-<span class="cstat-no" title="statement not covered" >          this._resUntagged();</span>
-        else <span class="cstat-no" title="statement not covered" >if (firstChar === 'A')</span>
-<span class="cstat-no" title="statement not covered" >          this._resTagged();</span>
-        else <span class="cstat-no" title="statement not covered" >if (firstChar === '+')</span>
-<span class="cstat-no" title="statement not covered" >          this._resContinue();</span>
+<span class="cstat-no" title="statement not covered">      if (RE_PRECEDING.test(this._buffer)) {</span>
+<span class="cstat-no" title="statement not covered">        var firstChar = this._buffer[0];</span>
+<span class="cstat-no" title="statement not covered">        if (firstChar === '*')</span>
+<span class="cstat-no" title="statement not covered">          this._resUntagged();</span>
+        else <span class="cstat-no" title="statement not covered">if (firstChar === 'A')</span>
+<span class="cstat-no" title="statement not covered">          this._resTagged();</span>
+        else <span class="cstat-no" title="statement not covered">if (firstChar === '+')</span>
+<span class="cstat-no" title="statement not covered">          this._resContinue();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (this._literallen &gt; 0 &amp;&amp; i &lt; datalen) {</span>
-<span class="cstat-no" title="statement not covered" >          this._ignoreReadable = true;</span>
+<span class="cstat-no" title="statement not covered">        if (this._literallen &gt; 0 &amp;&amp; i &lt; datalen) {</span>
+<span class="cstat-no" title="statement not covered">          this._ignoreReadable = true;</span>
           // literal data included in this chunk -- put it back onto stream
-<span class="cstat-no" title="statement not covered" >          this._stream.unshift(data.slice(i));</span>
-<span class="cstat-no" title="statement not covered" >          this._ignoreReadable = false;</span>
-<span class="cstat-no" title="statement not covered" >          i = datalen;</span>
-<span class="cstat-no" title="statement not covered" >          if (!this._body) {</span>
+<span class="cstat-no" title="statement not covered">          this._stream.unshift(data.slice(i));</span>
+<span class="cstat-no" title="statement not covered">          this._ignoreReadable = false;</span>
+<span class="cstat-no" title="statement not covered">          i = datalen;</span>
+<span class="cstat-no" title="statement not covered">          if (!this._body) {</span>
             // check if unshifted contents satisfies non-body literal length
-<span class="cstat-no" title="statement not covered" >            this._tryread(this._literallen);</span>
+<span class="cstat-no" title="statement not covered">            this._tryread(this._literallen);</span>
           }
         }
       } else {
-<span class="cstat-no" title="statement not covered" >        this.emit('other', this._buffer);</span>
-<span class="cstat-no" title="statement not covered" >        this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">        this.emit('other', this._buffer);</span>
+<span class="cstat-no" title="statement not covered">        this._buffer = '';</span>
       }
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (this._literallen === 0 || this._body)</span>
-<span class="cstat-no" title="statement not covered" >    this._tryread();</span>
+<span class="cstat-no" title="statement not covered">  if (this._literallen === 0 || this._body)</span>
+<span class="cstat-no" title="statement not covered">    this._tryread();</span>
 };
 &nbsp;
-Parser.prototype._resTagged = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >  var m;</span>
-<span class="cstat-no" title="statement not covered" >  if (m = RE_LITERAL.exec(this._buffer)) {</span>
+Parser.prototype._resTagged = <span class="fstat-no" title="function not covered">function() {</span>
+<span class="cstat-no" title="statement not covered">  var m;</span>
+<span class="cstat-no" title="statement not covered">  if (m = RE_LITERAL.exec(this._buffer)) {</span>
     // non-BODY literal -- buffer it
-<span class="cstat-no" title="statement not covered" >    this._buffer = this._buffer.replace(RE_LITERAL, LITPLACEHOLDER);</span>
-<span class="cstat-no" title="statement not covered" >    this._literallen = parseInt(m[1], 10);</span>
-  } else <span class="cstat-no" title="statement not covered" >if (m = RE_TAGGED.exec(this._buffer)) {</span>
-<span class="cstat-no" title="statement not covered" >    this._buffer = '';</span>
-<span class="cstat-no" title="statement not covered" >    this._literals = [];</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = this._buffer.replace(RE_LITERAL, LITPLACEHOLDER);</span>
+<span class="cstat-no" title="statement not covered">    this._literallen = parseInt(m[1], 10);</span>
+  } else <span class="cstat-no" title="statement not covered">if (m = RE_TAGGED.exec(this._buffer)) {</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">    this._literals = [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this.emit('tagged', {</span>
+<span class="cstat-no" title="statement not covered">    this.emit('tagged', {</span>
       type: m[2].toLowerCase(),
       tagnum: parseInt(m[1], 10),
       textCode: (m[3] ? parseTextCode(m[3], this._literals) : m[3]),
       text: m[4]
     });
   } else
-<span class="cstat-no" title="statement not covered" >    this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = '';</span>
 };
 &nbsp;
-Parser.prototype._resUntagged = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >  var m;</span>
-<span class="cstat-no" title="statement not covered" >  if (m = RE_BODYLITERAL.exec(this._buffer)) {</span>
+Parser.prototype._resUntagged = <span class="fstat-no" title="function not covered">function() {</span>
+<span class="cstat-no" title="statement not covered">  var m;</span>
+<span class="cstat-no" title="statement not covered">  if (m = RE_BODYLITERAL.exec(this._buffer)) {</span>
     // BODY literal -- stream it
-<span class="cstat-no" title="statement not covered" >    var which = m[1], size = parseInt(m[2], 10);</span>
-<span class="cstat-no" title="statement not covered" >    this._literallen = size;</span>
-<span class="cstat-no" title="statement not covered" >    this._body = new ReadableStream();</span>
-<span class="cstat-no" title="statement not covered" >    this._body._readableState.sync = false;</span>
-<span class="cstat-no" title="statement not covered" >    this._body._read = EMPTY_READCB;</span>
-<span class="cstat-no" title="statement not covered" >    m = RE_SEQNO.exec(this._buffer);</span>
-<span class="cstat-no" title="statement not covered" >    this._buffer = this._buffer.replace(RE_BODYLITERAL, '');</span>
-<span class="cstat-no" title="statement not covered" >    this.emit('body', this._body, {</span>
+<span class="cstat-no" title="statement not covered">    var which = m[1], size = parseInt(m[2], 10);</span>
+<span class="cstat-no" title="statement not covered">    this._literallen = size;</span>
+<span class="cstat-no" title="statement not covered">    this._body = new ReadableStream();</span>
+<span class="cstat-no" title="statement not covered">    this._body._readableState.sync = false;</span>
+<span class="cstat-no" title="statement not covered">    this._body._read = EMPTY_READCB;</span>
+<span class="cstat-no" title="statement not covered">    m = RE_SEQNO.exec(this._buffer);</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = this._buffer.replace(RE_BODYLITERAL, '');</span>
+<span class="cstat-no" title="statement not covered">    this.emit('body', this._body, {</span>
       seqno: parseInt(m[1], 10),
       which: which,
       size: size
     });
-  } else <span class="cstat-no" title="statement not covered" >if (m = RE_LITERAL.exec(this._buffer)) {</span>
+  } else <span class="cstat-no" title="statement not covered">if (m = RE_LITERAL.exec(this._buffer)) {</span>
     // non-BODY literal -- buffer it
-<span class="cstat-no" title="statement not covered" >    this._buffer = this._buffer.replace(RE_LITERAL, LITPLACEHOLDER);</span>
-<span class="cstat-no" title="statement not covered" >    this._literallen = parseInt(m[1], 10);</span>
-  } else <span class="cstat-no" title="statement not covered" >if (m = RE_UNTAGGED.exec(this._buffer)) {</span>
-<span class="cstat-no" title="statement not covered" >    this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = this._buffer.replace(RE_LITERAL, LITPLACEHOLDER);</span>
+<span class="cstat-no" title="statement not covered">    this._literallen = parseInt(m[1], 10);</span>
+  } else <span class="cstat-no" title="statement not covered">if (m = RE_UNTAGGED.exec(this._buffer)) {</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = '';</span>
     // normal single line response
 &nbsp;
     // m[1] or m[3] = response type
@@ -2479,283 +2477,283 @@ Parser.prototype._resUntagged = <span class="fstat-no" title="function not cover
     // m[4] = response text code (optional)
     // m[5] = response text (optional)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var type, num, textCode, val;</span>
-<span class="cstat-no" title="statement not covered" >    if (m[2] !== undefined)</span>
-<span class="cstat-no" title="statement not covered" >      num = parseInt(m[2], 10);</span>
-<span class="cstat-no" title="statement not covered" >    if (m[4] !== undefined)</span>
-<span class="cstat-no" title="statement not covered" >      textCode = parseTextCode(m[4], this._literals);</span>
+<span class="cstat-no" title="statement not covered">    var type, num, textCode, val;</span>
+<span class="cstat-no" title="statement not covered">    if (m[2] !== undefined)</span>
+<span class="cstat-no" title="statement not covered">      num = parseInt(m[2], 10);</span>
+<span class="cstat-no" title="statement not covered">    if (m[4] !== undefined)</span>
+<span class="cstat-no" title="statement not covered">      textCode = parseTextCode(m[4], this._literals);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    type = (m[1] || m[3]).toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">    type = (m[1] || m[3]).toLowerCase();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (type === 'flags'</span>
+<span class="cstat-no" title="statement not covered">    if (type === 'flags'</span>
         || type === 'search'
         || type === 'capability'
         || type === 'sort') {
-<span class="cstat-no" title="statement not covered" >      if (m[5]) {</span>
-<span class="cstat-no" title="statement not covered" >        if (type === 'search' &amp;&amp; RE_SEARCH_MODSEQ.test(m[5])) {</span>
+<span class="cstat-no" title="statement not covered">      if (m[5]) {</span>
+<span class="cstat-no" title="statement not covered">        if (type === 'search' &amp;&amp; RE_SEARCH_MODSEQ.test(m[5])) {</span>
           // CONDSTORE search response
-<span class="cstat-no" title="statement not covered" >          var p = RE_SEARCH_MODSEQ.exec(m[5]);</span>
-<span class="cstat-no" title="statement not covered" >          val = {</span>
+<span class="cstat-no" title="statement not covered">          var p = RE_SEARCH_MODSEQ.exec(m[5]);</span>
+<span class="cstat-no" title="statement not covered">          val = {</span>
             results: p[1].split(' '),
             modseq: p[2]
           };
         } else {
-<span class="cstat-no" title="statement not covered" >          if (m[5][0] === '(')</span>
-<span class="cstat-no" title="statement not covered" >            val = RE_LISTCONTENT.exec(m[5])[1].split(' ');</span>
+<span class="cstat-no" title="statement not covered">          if (m[5][0] === '(')</span>
+<span class="cstat-no" title="statement not covered">            val = RE_LISTCONTENT.exec(m[5])[1].split(' ');</span>
           else
-<span class="cstat-no" title="statement not covered" >            val = m[5].split(' ');</span>
+<span class="cstat-no" title="statement not covered">            val = m[5].split(' ');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          if (type === 'search' || type === 'sort')</span>
-<span class="cstat-no" title="statement not covered" >            val = val.map(<span class="fstat-no" title="function not covered" >function(v) {</span> <span class="cstat-no" title="statement not covered" >return parseInt(v, 10); </span>});</span>
+<span class="cstat-no" title="statement not covered">          if (type === 'search' || type === 'sort')</span>
+<span class="cstat-no" title="statement not covered">            val = val.map(<span class="fstat-no" title="function not covered">function(v) {</span> <span class="cstat-no" title="statement not covered">return parseInt(v, 10); </span>});</span>
         }
       } else
-<span class="cstat-no" title="statement not covered" >        val = [];</span>
-    } else <span class="cstat-no" title="statement not covered" >if (type === 'thread') {</span>
-<span class="cstat-no" title="statement not covered" >      if (m[5])</span>
-<span class="cstat-no" title="statement not covered" >        val = parseExpr(m[5], this._literals);</span>
+<span class="cstat-no" title="statement not covered">        val = [];</span>
+    } else <span class="cstat-no" title="statement not covered">if (type === 'thread') {</span>
+<span class="cstat-no" title="statement not covered">      if (m[5])</span>
+<span class="cstat-no" title="statement not covered">        val = parseExpr(m[5], this._literals);</span>
       else
-<span class="cstat-no" title="statement not covered" >        val = [];</span>
-    } else <span class="cstat-no" title="statement not covered" >if (type === 'list' || type === 'lsub' || type === 'xlist')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseBoxList(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'id')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseId(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'status')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseStatus(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'fetch')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseFetch.call(this, m[5], this._literals, num);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'namespace')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseNamespaces(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'esearch')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseESearch(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'quota')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseQuota(m[5], this._literals);</span>
-    else <span class="cstat-no" title="statement not covered" >if (type === 'quotaroot')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseQuotaRoot(m[5], this._literals);</span>
+<span class="cstat-no" title="statement not covered">        val = [];</span>
+    } else <span class="cstat-no" title="statement not covered">if (type === 'list' || type === 'lsub' || type === 'xlist')</span>
+<span class="cstat-no" title="statement not covered">      val = parseBoxList(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'id')</span>
+<span class="cstat-no" title="statement not covered">      val = parseId(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'status')</span>
+<span class="cstat-no" title="statement not covered">      val = parseStatus(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'fetch')</span>
+<span class="cstat-no" title="statement not covered">      val = parseFetch.call(this, m[5], this._literals, num);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'namespace')</span>
+<span class="cstat-no" title="statement not covered">      val = parseNamespaces(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'esearch')</span>
+<span class="cstat-no" title="statement not covered">      val = parseESearch(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'quota')</span>
+<span class="cstat-no" title="statement not covered">      val = parseQuota(m[5], this._literals);</span>
+    else <span class="cstat-no" title="statement not covered">if (type === 'quotaroot')</span>
+<span class="cstat-no" title="statement not covered">      val = parseQuotaRoot(m[5], this._literals);</span>
     else
-<span class="cstat-no" title="statement not covered" >      val = m[5];</span>
+<span class="cstat-no" title="statement not covered">      val = m[5];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this._literals = [];</span>
+<span class="cstat-no" title="statement not covered">    this._literals = [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this.emit('untagged', {</span>
+<span class="cstat-no" title="statement not covered">    this.emit('untagged', {</span>
       type: type,
       num: num,
       textCode: textCode,
       text: val
     });
   } else
-<span class="cstat-no" title="statement not covered" >    this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">    this._buffer = '';</span>
 };
 &nbsp;
-Parser.prototype._resContinue = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >  var m = RE_CONTINUE.exec(this._buffer),</span>
+Parser.prototype._resContinue = <span class="fstat-no" title="function not covered">function() {</span>
+<span class="cstat-no" title="statement not covered">  var m = RE_CONTINUE.exec(this._buffer),</span>
       textCode,
       text;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  this._buffer = '';</span>
+<span class="cstat-no" title="statement not covered">  this._buffer = '';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!m)</span>
-<span class="cstat-no" title="statement not covered" >    return;</span>
+<span class="cstat-no" title="statement not covered">  if (!m)</span>
+<span class="cstat-no" title="statement not covered">    return;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  text = m[2];</span>
+<span class="cstat-no" title="statement not covered">  text = m[2];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (m[1] !== undefined)</span>
-<span class="cstat-no" title="statement not covered" >    textCode = parseTextCode(m[1], this._literals);</span>
+<span class="cstat-no" title="statement not covered">  if (m[1] !== undefined)</span>
+<span class="cstat-no" title="statement not covered">    textCode = parseTextCode(m[1], this._literals);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  this.emit('continue', {</span>
+<span class="cstat-no" title="statement not covered">  this.emit('continue', {</span>
     textCode: textCode,
     text: text
   });
 };
 &nbsp;
-<span class="fstat-no" title="function not covered" >function indexOfCh(buffer, len, i, ch) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = -1;</span>
-<span class="cstat-no" title="statement not covered" >  for (; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >    if (buffer[i] === ch) {</span>
-<span class="cstat-no" title="statement not covered" >      r = i;</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="fstat-no" title="function not covered">function indexOfCh(buffer, len, i, ch) {</span>
+<span class="cstat-no" title="statement not covered">  var r = -1;</span>
+<span class="cstat-no" title="statement not covered">  for (; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">    if (buffer[i] === ch) {</span>
+<span class="cstat-no" title="statement not covered">      r = i;</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     }
   }
-<span class="cstat-no" title="statement not covered" >  return r;</span>
+<span class="cstat-no" title="statement not covered">  return r;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseTextCode(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals);</span>
-<span class="cstat-no" title="statement not covered" >  if (r.length === 1)</span>
-<span class="cstat-no" title="statement not covered" >    return r[0];</span>
+<span class="fstat-no" title="function not covered">function parseTextCode(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals);</span>
+<span class="cstat-no" title="statement not covered">  if (r.length === 1)</span>
+<span class="cstat-no" title="statement not covered">    return r[0];</span>
   else
-<span class="cstat-no" title="statement not covered" >    return { key: r[0], val: r.length === 2 ? r[1] : r.slice(1) };</span>
+<span class="cstat-no" title="statement not covered">    return { key: r[0], val: r.length === 2 ? r[1] : r.slice(1) };</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseESearch(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text.toUpperCase().replace('UID', ''), literals),</span>
+<span class="fstat-no" title="function not covered">function parseESearch(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text.toUpperCase().replace('UID', ''), literals),</span>
       attrs = {};
 &nbsp;
   // RFC4731 unfortunately is lacking on documentation, so we're going to
   // assume that the response text always begins with (TAG "A123") and skip that
   // part ...
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i = 1, len = r.length, key, val; i &lt; len; i += 2) {</span>
-<span class="cstat-no" title="statement not covered" >    key = r[i].toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >    val = r[i + 1];</span>
-<span class="cstat-no" title="statement not covered" >    if (key === 'all')</span>
-<span class="cstat-no" title="statement not covered" >      val = val.toString().split(',');</span>
-<span class="cstat-no" title="statement not covered" >    attrs[key] = val;</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 1, len = r.length, key, val; i &lt; len; i += 2) {</span>
+<span class="cstat-no" title="statement not covered">    key = r[i].toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">    val = r[i + 1];</span>
+<span class="cstat-no" title="statement not covered">    if (key === 'all')</span>
+<span class="cstat-no" title="statement not covered">      val = val.toString().split(',');</span>
+<span class="cstat-no" title="statement not covered">    attrs[key] = val;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return attrs;</span>
+<span class="cstat-no" title="statement not covered">  return attrs;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseId(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals),</span>
+<span class="fstat-no" title="function not covered">function parseId(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals),</span>
       id = {};
-<span class="cstat-no" title="statement not covered" >  if (r[0] === null)</span>
-<span class="cstat-no" title="statement not covered" >    return null;</span>
-<span class="cstat-no" title="statement not covered" >  for (var i = 0, len = r[0].length; i &lt; len; i += 2)</span>
-<span class="cstat-no" title="statement not covered" >    id[r[0][i].toLowerCase()] = r[0][i + 1];</span>
+<span class="cstat-no" title="statement not covered">  if (r[0] === null)</span>
+<span class="cstat-no" title="statement not covered">    return null;</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0, len = r[0].length; i &lt; len; i += 2)</span>
+<span class="cstat-no" title="statement not covered">    id[r[0][i].toLowerCase()] = r[0][i + 1];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return id;</span>
+<span class="cstat-no" title="statement not covered">  return id;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseQuota(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals),</span>
+<span class="fstat-no" title="function not covered">function parseQuota(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals),</span>
       resources = {};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i = 0, len = r[1].length; i &lt; len; i += 3) {</span>
-<span class="cstat-no" title="statement not covered" >    resources[r[1][i].toLowerCase()] = {</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0, len = r[1].length; i &lt; len; i += 3) {</span>
+<span class="cstat-no" title="statement not covered">    resources[r[1][i].toLowerCase()] = {</span>
       usage: r[1][i + 1],
       limit: r[1][i + 2]
     };
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     root: r[0],
     resources: resources
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseQuotaRoot(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals);</span>
+<span class="fstat-no" title="function not covered">function parseQuotaRoot(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     roots: r.slice(1),
     mailbox: r[0]
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseBoxList(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals);</span>
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="fstat-no" title="function not covered">function parseBoxList(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals);</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     flags: r[0],
     delimiter: r[1],
     name: utf7.decode(''+r[2])
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseNamespaces(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals), i, len, j, len2, ns, nsobj, namespaces, n;</span>
+<span class="fstat-no" title="function not covered">function parseNamespaces(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals), i, len, j, len2, ns, nsobj, namespaces, n;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (n = 0; n &lt; 3; ++n) {</span>
-<span class="cstat-no" title="statement not covered" >    if (r[n]) {</span>
-<span class="cstat-no" title="statement not covered" >      namespaces = [];</span>
-<span class="cstat-no" title="statement not covered" >      for (i = 0, len = r[n].length; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >        ns = r[n][i];</span>
-<span class="cstat-no" title="statement not covered" >        nsobj = {</span>
+<span class="cstat-no" title="statement not covered">  for (n = 0; n &lt; 3; ++n) {</span>
+<span class="cstat-no" title="statement not covered">    if (r[n]) {</span>
+<span class="cstat-no" title="statement not covered">      namespaces = [];</span>
+<span class="cstat-no" title="statement not covered">      for (i = 0, len = r[n].length; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">        ns = r[n][i];</span>
+<span class="cstat-no" title="statement not covered">        nsobj = {</span>
           prefix: ns[0],
           delimiter: ns[1],
           extensions: undefined
         };
-<span class="cstat-no" title="statement not covered" >        if (ns.length &gt; 2)</span>
-<span class="cstat-no" title="statement not covered" >          nsobj.extensions = {};</span>
-<span class="cstat-no" title="statement not covered" >        for (j = 2, len2 = ns.length; j &lt; len2; j += 2)</span>
-<span class="cstat-no" title="statement not covered" >          nsobj.extensions[ns[j]] = ns[j + 1];</span>
-<span class="cstat-no" title="statement not covered" >        namespaces.push(nsobj);</span>
+<span class="cstat-no" title="statement not covered">        if (ns.length &gt; 2)</span>
+<span class="cstat-no" title="statement not covered">          nsobj.extensions = {};</span>
+<span class="cstat-no" title="statement not covered">        for (j = 2, len2 = ns.length; j &lt; len2; j += 2)</span>
+<span class="cstat-no" title="statement not covered">          nsobj.extensions[ns[j]] = ns[j + 1];</span>
+<span class="cstat-no" title="statement not covered">        namespaces.push(nsobj);</span>
       }
-<span class="cstat-no" title="statement not covered" >      r[n] = namespaces;</span>
+<span class="cstat-no" title="statement not covered">      r[n] = namespaces;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     personal: r[0],
     other: r[1],
     shared: r[2]
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseStatus(text, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  var r = parseExpr(text, literals), attrs = {};</span>
+<span class="fstat-no" title="function not covered">function parseStatus(text, literals) {</span>
+<span class="cstat-no" title="statement not covered">  var r = parseExpr(text, literals), attrs = {};</span>
   // r[1] is [KEY1, VAL1, KEY2, VAL2, .... KEYn, VALn]
-<span class="cstat-no" title="statement not covered" >  for (var i = 0, len = r[1].length; i &lt; len; i += 2)</span>
-<span class="cstat-no" title="statement not covered" >    attrs[r[1][i].toLowerCase()] = r[1][i + 1];</span>
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0, len = r[1].length; i &lt; len; i += 2)</span>
+<span class="cstat-no" title="statement not covered">    attrs[r[1][i].toLowerCase()] = r[1][i + 1];</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     name: utf7.decode(''+r[0]),
     attrs: attrs
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseFetch(text, literals, seqno) {</span>
-<span class="cstat-no" title="statement not covered" >  var list = parseExpr(text, literals)[0], attrs = {}, m, body;</span>
+<span class="fstat-no" title="function not covered">function parseFetch(text, literals, seqno) {</span>
+<span class="cstat-no" title="statement not covered">  var list = parseExpr(text, literals)[0], attrs = {}, m, body;</span>
   // list is [KEY1, VAL1, KEY2, VAL2, .... KEYn, VALn]
-<span class="cstat-no" title="statement not covered" >  for (var i = 0, len = list.length, key, val; i &lt; len; i += 2) {</span>
-<span class="cstat-no" title="statement not covered" >    key = list[i].toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >    val = list[i + 1];</span>
-<span class="cstat-no" title="statement not covered" >    if (key === 'envelope')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseFetchEnvelope(val);</span>
-    else <span class="cstat-no" title="statement not covered" >if (key === 'internaldate')</span>
-<span class="cstat-no" title="statement not covered" >      val = new Date(val);</span>
-    else <span class="cstat-no" title="statement not covered" >if (key === 'modseq') // always a list of one value</span>
-<span class="cstat-no" title="statement not covered" >      val = ''+val[0];</span>
-    else <span class="cstat-no" title="statement not covered" >if (key === 'body' || key === 'bodystructure')</span>
-<span class="cstat-no" title="statement not covered" >      val = parseBodyStructure(val);</span>
-    else <span class="cstat-no" title="statement not covered" >if (m = RE_BODYINLINEKEY.exec(list[i])) {</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0, len = list.length, key, val; i &lt; len; i += 2) {</span>
+<span class="cstat-no" title="statement not covered">    key = list[i].toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">    val = list[i + 1];</span>
+<span class="cstat-no" title="statement not covered">    if (key === 'envelope')</span>
+<span class="cstat-no" title="statement not covered">      val = parseFetchEnvelope(val);</span>
+    else <span class="cstat-no" title="statement not covered">if (key === 'internaldate')</span>
+<span class="cstat-no" title="statement not covered">      val = new Date(val);</span>
+    else <span class="cstat-no" title="statement not covered">if (key === 'modseq') // always a list of one value</span>
+<span class="cstat-no" title="statement not covered">      val = ''+val[0];</span>
+    else <span class="cstat-no" title="statement not covered">if (key === 'body' || key === 'bodystructure')</span>
+<span class="cstat-no" title="statement not covered">      val = parseBodyStructure(val);</span>
+    else <span class="cstat-no" title="statement not covered">if (m = RE_BODYINLINEKEY.exec(list[i])) {</span>
       // a body was sent as a non-literal
-<span class="cstat-no" title="statement not covered" >      val = new Buffer(''+val);</span>
-<span class="cstat-no" title="statement not covered" >      body = new ReadableStream();</span>
-<span class="cstat-no" title="statement not covered" >      body._readableState.sync = false;</span>
-<span class="cstat-no" title="statement not covered" >      body._read = EMPTY_READCB;</span>
-<span class="cstat-no" title="statement not covered" >      this.emit('body', body, {</span>
+<span class="cstat-no" title="statement not covered">      val = new Buffer(''+val);</span>
+<span class="cstat-no" title="statement not covered">      body = new ReadableStream();</span>
+<span class="cstat-no" title="statement not covered">      body._readableState.sync = false;</span>
+<span class="cstat-no" title="statement not covered">      body._read = EMPTY_READCB;</span>
+<span class="cstat-no" title="statement not covered">      this.emit('body', body, {</span>
         seqno: seqno,
         which: m[1],
         size: val.length
       });
-<span class="cstat-no" title="statement not covered" >      body.push(val);</span>
-<span class="cstat-no" title="statement not covered" >      body.push(null);</span>
-<span class="cstat-no" title="statement not covered" >      continue;</span>
+<span class="cstat-no" title="statement not covered">      body.push(val);</span>
+<span class="cstat-no" title="statement not covered">      body.push(null);</span>
+<span class="cstat-no" title="statement not covered">      continue;</span>
     }
-<span class="cstat-no" title="statement not covered" >    attrs[key] = val;</span>
+<span class="cstat-no" title="statement not covered">    attrs[key] = val;</span>
   }
-<span class="cstat-no" title="statement not covered" >  return attrs;</span>
+<span class="cstat-no" title="statement not covered">  return attrs;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseBodyStructure(cur, literals, prefix, partID) {</span>
-<span class="cstat-no" title="statement not covered" >  var ret = [], i, len;</span>
-<span class="cstat-no" title="statement not covered" >  if (prefix === undefined) {</span>
-<span class="cstat-no" title="statement not covered" >    var result = (Array.isArray(cur) ? cur : parseExpr(cur, literals));</span>
-<span class="cstat-no" title="statement not covered" >    if (result.length)</span>
-<span class="cstat-no" title="statement not covered" >      ret = parseBodyStructure(result, literals, '', 1);</span>
+<span class="fstat-no" title="function not covered">function parseBodyStructure(cur, literals, prefix, partID) {</span>
+<span class="cstat-no" title="statement not covered">  var ret = [], i, len;</span>
+<span class="cstat-no" title="statement not covered">  if (prefix === undefined) {</span>
+<span class="cstat-no" title="statement not covered">    var result = (Array.isArray(cur) ? cur : parseExpr(cur, literals));</span>
+<span class="cstat-no" title="statement not covered">    if (result.length)</span>
+<span class="cstat-no" title="statement not covered">      ret = parseBodyStructure(result, literals, '', 1);</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    var part, partLen = cur.length, next;</span>
-<span class="cstat-no" title="statement not covered" >    if (Array.isArray(cur[0])) { // multipart</span>
-<span class="cstat-no" title="statement not covered" >      next = -1;</span>
-<span class="cstat-no" title="statement not covered" >      while (Array.isArray(cur[++next])) {</span>
-<span class="cstat-no" title="statement not covered" >        ret.push(parseBodyStructure(cur[next],</span>
+<span class="cstat-no" title="statement not covered">    var part, partLen = cur.length, next;</span>
+<span class="cstat-no" title="statement not covered">    if (Array.isArray(cur[0])) { // multipart</span>
+<span class="cstat-no" title="statement not covered">      next = -1;</span>
+<span class="cstat-no" title="statement not covered">      while (Array.isArray(cur[++next])) {</span>
+<span class="cstat-no" title="statement not covered">        ret.push(parseBodyStructure(cur[next],</span>
                                     literals,
                                     prefix + (prefix !== '' ? '.' : '')
                                            + (partID++).toString(), 1));
       }
-<span class="cstat-no" title="statement not covered" >      part = { type: cur[next++].toLowerCase() };</span>
-<span class="cstat-no" title="statement not covered" >      if (partLen &gt; next) {</span>
-<span class="cstat-no" title="statement not covered" >        if (Array.isArray(cur[next])) {</span>
-<span class="cstat-no" title="statement not covered" >          part.params = {};</span>
-<span class="cstat-no" title="statement not covered" >          for (i = 0, len = cur[next].length; i &lt; len; i += 2)</span>
-<span class="cstat-no" title="statement not covered" >            part.params[cur[next][i].toLowerCase()] = cur[next][i + 1];</span>
+<span class="cstat-no" title="statement not covered">      part = { type: cur[next++].toLowerCase() };</span>
+<span class="cstat-no" title="statement not covered">      if (partLen &gt; next) {</span>
+<span class="cstat-no" title="statement not covered">        if (Array.isArray(cur[next])) {</span>
+<span class="cstat-no" title="statement not covered">          part.params = {};</span>
+<span class="cstat-no" title="statement not covered">          for (i = 0, len = cur[next].length; i &lt; len; i += 2)</span>
+<span class="cstat-no" title="statement not covered">            part.params[cur[next][i].toLowerCase()] = cur[next][i + 1];</span>
         } else
-<span class="cstat-no" title="statement not covered" >          part.params = cur[next];</span>
-<span class="cstat-no" title="statement not covered" >        ++next;</span>
+<span class="cstat-no" title="statement not covered">          part.params = cur[next];</span>
+<span class="cstat-no" title="statement not covered">        ++next;</span>
       }
     } else { // single part
-<span class="cstat-no" title="statement not covered" >      next = 7;</span>
-<span class="cstat-no" title="statement not covered" >      if (typeof cur[1] === 'string') {</span>
-<span class="cstat-no" title="statement not covered" >        part = {</span>
+<span class="cstat-no" title="statement not covered">      next = 7;</span>
+<span class="cstat-no" title="statement not covered">      if (typeof cur[1] === 'string') {</span>
+<span class="cstat-no" title="statement not covered">        part = {</span>
           // the path identifier for this part, useful for fetching specific
           // parts of a message
           partID: (prefix !== '' ? prefix : '1'),
@@ -2767,95 +2765,95 @@ Parser.prototype._resContinue = <span class="fstat-no" title="function not cover
         };
       } else {
         // type information for malformed multipart body
-<span class="cstat-no" title="statement not covered" >        part = { type: cur[0] ? cur[0].toLowerCase() : null, params: null };</span>
-<span class="cstat-no" title="statement not covered" >        cur.splice(1, 0, null);</span>
-<span class="cstat-no" title="statement not covered" >        ++partLen;</span>
-<span class="cstat-no" title="statement not covered" >        next = 2;</span>
+<span class="cstat-no" title="statement not covered">        part = { type: cur[0] ? cur[0].toLowerCase() : null, params: null };</span>
+<span class="cstat-no" title="statement not covered">        cur.splice(1, 0, null);</span>
+<span class="cstat-no" title="statement not covered">        ++partLen;</span>
+<span class="cstat-no" title="statement not covered">        next = 2;</span>
       }
-<span class="cstat-no" title="statement not covered" >      if (Array.isArray(cur[2])) {</span>
-<span class="cstat-no" title="statement not covered" >        part.params = {};</span>
-<span class="cstat-no" title="statement not covered" >        for (i = 0, len = cur[2].length; i &lt; len; i += 2)</span>
-<span class="cstat-no" title="statement not covered" >          part.params[cur[2][i].toLowerCase()] = cur[2][i + 1];</span>
-<span class="cstat-no" title="statement not covered" >        if (cur[1] === null)</span>
-<span class="cstat-no" title="statement not covered" >          ++next;</span>
+<span class="cstat-no" title="statement not covered">      if (Array.isArray(cur[2])) {</span>
+<span class="cstat-no" title="statement not covered">        part.params = {};</span>
+<span class="cstat-no" title="statement not covered">        for (i = 0, len = cur[2].length; i &lt; len; i += 2)</span>
+<span class="cstat-no" title="statement not covered">          part.params[cur[2][i].toLowerCase()] = cur[2][i + 1];</span>
+<span class="cstat-no" title="statement not covered">        if (cur[1] === null)</span>
+<span class="cstat-no" title="statement not covered">          ++next;</span>
       }
-<span class="cstat-no" title="statement not covered" >      if (part.type === 'message' &amp;&amp; part.subtype === 'rfc822') {</span>
+<span class="cstat-no" title="statement not covered">      if (part.type === 'message' &amp;&amp; part.subtype === 'rfc822') {</span>
         // envelope
-<span class="cstat-no" title="statement not covered" >        if (partLen &gt; next &amp;&amp; Array.isArray(cur[next]))</span>
-<span class="cstat-no" title="statement not covered" >          part.envelope = parseFetchEnvelope(cur[next]);</span>
+<span class="cstat-no" title="statement not covered">        if (partLen &gt; next &amp;&amp; Array.isArray(cur[next]))</span>
+<span class="cstat-no" title="statement not covered">          part.envelope = parseFetchEnvelope(cur[next]);</span>
         else
-<span class="cstat-no" title="statement not covered" >          part.envelope = null;</span>
-<span class="cstat-no" title="statement not covered" >        ++next;</span>
+<span class="cstat-no" title="statement not covered">          part.envelope = null;</span>
+<span class="cstat-no" title="statement not covered">        ++next;</span>
 &nbsp;
         // body
-<span class="cstat-no" title="statement not covered" >        if (partLen &gt; next &amp;&amp; Array.isArray(cur[next]))</span>
-<span class="cstat-no" title="statement not covered" >          part.body = parseBodyStructure(cur[next], literals, prefix, 1);</span>
+<span class="cstat-no" title="statement not covered">        if (partLen &gt; next &amp;&amp; Array.isArray(cur[next]))</span>
+<span class="cstat-no" title="statement not covered">          part.body = parseBodyStructure(cur[next], literals, prefix, 1);</span>
         else
-<span class="cstat-no" title="statement not covered" >          part.body = null;</span>
-<span class="cstat-no" title="statement not covered" >        ++next;</span>
+<span class="cstat-no" title="statement not covered">          part.body = null;</span>
+<span class="cstat-no" title="statement not covered">        ++next;</span>
       }
-<span class="cstat-no" title="statement not covered" >      if ((part.type === 'text'</span>
+<span class="cstat-no" title="statement not covered">      if ((part.type === 'text'</span>
            || (part.type === 'message' &amp;&amp; part.subtype === 'rfc822'))
           &amp;&amp; partLen &gt; next)
-<span class="cstat-no" title="statement not covered" >        part.lines = cur[next++];</span>
-<span class="cstat-no" title="statement not covered" >      if (typeof cur[1] === 'string' &amp;&amp; partLen &gt; next)</span>
-<span class="cstat-no" title="statement not covered" >        part.md5 = cur[next++];</span>
+<span class="cstat-no" title="statement not covered">        part.lines = cur[next++];</span>
+<span class="cstat-no" title="statement not covered">      if (typeof cur[1] === 'string' &amp;&amp; partLen &gt; next)</span>
+<span class="cstat-no" title="statement not covered">        part.md5 = cur[next++];</span>
     }
     // add any extra fields that may or may not be omitted entirely
-<span class="cstat-no" title="statement not covered" >    parseStructExtra(part, partLen, cur, next);</span>
-<span class="cstat-no" title="statement not covered" >    ret.unshift(part);</span>
+<span class="cstat-no" title="statement not covered">    parseStructExtra(part, partLen, cur, next);</span>
+<span class="cstat-no" title="statement not covered">    ret.unshift(part);</span>
   }
-<span class="cstat-no" title="statement not covered" >  return ret;</span>
+<span class="cstat-no" title="statement not covered">  return ret;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseStructExtra(part, partLen, cur, next) {</span>
-<span class="cstat-no" title="statement not covered" >  if (partLen &gt; next) {</span>
+<span class="fstat-no" title="function not covered">function parseStructExtra(part, partLen, cur, next) {</span>
+<span class="cstat-no" title="statement not covered">  if (partLen &gt; next) {</span>
     // disposition
     // null or a special k/v list with these kinds of values:
     // e.g.: ['Foo', null]
     //       ['Foo', ['Bar', 'Baz']]
     //       ['Foo', ['Bar', 'Baz', 'Bam', 'Pow']]
-<span class="cstat-no" title="statement not covered" >    var disposition = { type: null, params: null };</span>
-<span class="cstat-no" title="statement not covered" >    if (Array.isArray(cur[next])) {</span>
-<span class="cstat-no" title="statement not covered" >      disposition.type = cur[next][0];</span>
-<span class="cstat-no" title="statement not covered" >      if (Array.isArray(cur[next][1])) {</span>
-<span class="cstat-no" title="statement not covered" >        disposition.params = {};</span>
-<span class="cstat-no" title="statement not covered" >        for (var i = 0, len = cur[next][1].length, key; i &lt; len; i += 2) {</span>
-<span class="cstat-no" title="statement not covered" >          key = cur[next][1][i].toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >          disposition.params[key] = cur[next][1][i + 1];</span>
+<span class="cstat-no" title="statement not covered">    var disposition = { type: null, params: null };</span>
+<span class="cstat-no" title="statement not covered">    if (Array.isArray(cur[next])) {</span>
+<span class="cstat-no" title="statement not covered">      disposition.type = cur[next][0];</span>
+<span class="cstat-no" title="statement not covered">      if (Array.isArray(cur[next][1])) {</span>
+<span class="cstat-no" title="statement not covered">        disposition.params = {};</span>
+<span class="cstat-no" title="statement not covered">        for (var i = 0, len = cur[next][1].length, key; i &lt; len; i += 2) {</span>
+<span class="cstat-no" title="statement not covered">          key = cur[next][1][i].toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">          disposition.params[key] = cur[next][1][i + 1];</span>
         }
       }
-    } else <span class="cstat-no" title="statement not covered" >if (cur[next] !== null)</span>
-<span class="cstat-no" title="statement not covered" >      disposition.type = cur[next];</span>
+    } else <span class="cstat-no" title="statement not covered">if (cur[next] !== null)</span>
+<span class="cstat-no" title="statement not covered">      disposition.type = cur[next];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (disposition.type === null)</span>
-<span class="cstat-no" title="statement not covered" >      part.disposition = null;</span>
+<span class="cstat-no" title="statement not covered">    if (disposition.type === null)</span>
+<span class="cstat-no" title="statement not covered">      part.disposition = null;</span>
     else
-<span class="cstat-no" title="statement not covered" >      part.disposition = disposition;</span>
+<span class="cstat-no" title="statement not covered">      part.disposition = disposition;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    ++next;</span>
+<span class="cstat-no" title="statement not covered">    ++next;</span>
   }
-<span class="cstat-no" title="statement not covered" >  if (partLen &gt; next) {</span>
+<span class="cstat-no" title="statement not covered">  if (partLen &gt; next) {</span>
     // language can be a string or a list of one or more strings, so let's
     // make this more consistent ...
-<span class="cstat-no" title="statement not covered" >    if (cur[next] !== null)</span>
-<span class="cstat-no" title="statement not covered" >      part.language = (Array.isArray(cur[next]) ? cur[next] : [cur[next]]);</span>
+<span class="cstat-no" title="statement not covered">    if (cur[next] !== null)</span>
+<span class="cstat-no" title="statement not covered">      part.language = (Array.isArray(cur[next]) ? cur[next] : [cur[next]]);</span>
     else
-<span class="cstat-no" title="statement not covered" >      part.language = null;</span>
-<span class="cstat-no" title="statement not covered" >    ++next;</span>
+<span class="cstat-no" title="statement not covered">      part.language = null;</span>
+<span class="cstat-no" title="statement not covered">    ++next;</span>
   }
-<span class="cstat-no" title="statement not covered" >  if (partLen &gt; next)</span>
-<span class="cstat-no" title="statement not covered" >    part.location = cur[next++];</span>
-<span class="cstat-no" title="statement not covered" >  if (partLen &gt; next) {</span>
+<span class="cstat-no" title="statement not covered">  if (partLen &gt; next)</span>
+<span class="cstat-no" title="statement not covered">    part.location = cur[next++];</span>
+<span class="cstat-no" title="statement not covered">  if (partLen &gt; next) {</span>
     // extension stuff introduced by later RFCs
     // this can really be any value: a string, number, or (un)nested list
     // let's not parse it for now ...
-<span class="cstat-no" title="statement not covered" >    part.extensions = cur[next];</span>
+<span class="cstat-no" title="statement not covered">    part.extensions = cur[next];</span>
   }
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseFetchEnvelope(list) {</span>
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="fstat-no" title="function not covered">function parseFetchEnvelope(list) {</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     date: new Date(list[0]),
     subject: decodeWords(list[1]),
     from: parseEnvelopeAddresses(list[2]),
@@ -2869,282 +2867,282 @@ Parser.prototype._resContinue = <span class="fstat-no" title="function not cover
   };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseEnvelopeAddresses(list) {</span>
-<span class="cstat-no" title="statement not covered" >  var addresses = null;</span>
-<span class="cstat-no" title="statement not covered" >  if (Array.isArray(list)) {</span>
-<span class="cstat-no" title="statement not covered" >    addresses = [];</span>
-<span class="cstat-no" title="statement not covered" >    var inGroup = false, curGroup;</span>
-<span class="cstat-no" title="statement not covered" >    for (var i = 0, len = list.length, addr; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >      addr = list[i];</span>
-<span class="cstat-no" title="statement not covered" >      if (addr[2] === null) { // end of group addresses</span>
-<span class="cstat-no" title="statement not covered" >        inGroup = false;</span>
-<span class="cstat-no" title="statement not covered" >        if (curGroup) {</span>
-<span class="cstat-no" title="statement not covered" >          addresses.push(curGroup);</span>
-<span class="cstat-no" title="statement not covered" >          curGroup = undefined;</span>
+<span class="fstat-no" title="function not covered">function parseEnvelopeAddresses(list) {</span>
+<span class="cstat-no" title="statement not covered">  var addresses = null;</span>
+<span class="cstat-no" title="statement not covered">  if (Array.isArray(list)) {</span>
+<span class="cstat-no" title="statement not covered">    addresses = [];</span>
+<span class="cstat-no" title="statement not covered">    var inGroup = false, curGroup;</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0, len = list.length, addr; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">      addr = list[i];</span>
+<span class="cstat-no" title="statement not covered">      if (addr[2] === null) { // end of group addresses</span>
+<span class="cstat-no" title="statement not covered">        inGroup = false;</span>
+<span class="cstat-no" title="statement not covered">        if (curGroup) {</span>
+<span class="cstat-no" title="statement not covered">          addresses.push(curGroup);</span>
+<span class="cstat-no" title="statement not covered">          curGroup = undefined;</span>
         }
-      } else <span class="cstat-no" title="statement not covered" >if (addr[3] === null) { // start of group addresses</span>
-<span class="cstat-no" title="statement not covered" >        inGroup = true;</span>
-<span class="cstat-no" title="statement not covered" >        curGroup = {</span>
+      } else <span class="cstat-no" title="statement not covered">if (addr[3] === null) { // start of group addresses</span>
+<span class="cstat-no" title="statement not covered">        inGroup = true;</span>
+<span class="cstat-no" title="statement not covered">        curGroup = {</span>
           group: addr[2],
           addresses: []
         };
       } else { // regular user address
-<span class="cstat-no" title="statement not covered" >        var info = {</span>
+<span class="cstat-no" title="statement not covered">        var info = {</span>
           name: decodeWords(addr[0]),
           mailbox: addr[2],
           host: addr[3]
         };
-<span class="cstat-no" title="statement not covered" >        if (inGroup)</span>
-<span class="cstat-no" title="statement not covered" >          curGroup.addresses.push(info);</span>
-        else <span class="cstat-no" title="statement not covered" >if (!inGroup)</span>
-<span class="cstat-no" title="statement not covered" >          addresses.push(info);</span>
+<span class="cstat-no" title="statement not covered">        if (inGroup)</span>
+<span class="cstat-no" title="statement not covered">          curGroup.addresses.push(info);</span>
+        else <span class="cstat-no" title="statement not covered">if (!inGroup)</span>
+<span class="cstat-no" title="statement not covered">          addresses.push(info);</span>
       }
-<span class="cstat-no" title="statement not covered" >      list[i] = addr;</span>
+<span class="cstat-no" title="statement not covered">      list[i] = addr;</span>
     }
-<span class="cstat-no" title="statement not covered" >    if (inGroup) {</span>
+<span class="cstat-no" title="statement not covered">    if (inGroup) {</span>
       // no end of group found, assume implicit end
-<span class="cstat-no" title="statement not covered" >      addresses.push(curGroup);</span>
+<span class="cstat-no" title="statement not covered">      addresses.push(curGroup);</span>
     }
   }
-<span class="cstat-no" title="statement not covered" >  return addresses;</span>
+<span class="cstat-no" title="statement not covered">  return addresses;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseExpr(o, literals, result, start, useBrackets) {</span>
-<span class="cstat-no" title="statement not covered" >  start = start || 0;</span>
-<span class="cstat-no" title="statement not covered" >  var inQuote = false,</span>
+<span class="fstat-no" title="function not covered">function parseExpr(o, literals, result, start, useBrackets) {</span>
+<span class="cstat-no" title="statement not covered">  start = start || 0;</span>
+<span class="cstat-no" title="statement not covered">  var inQuote = false,</span>
       lastPos = start - 1,
       isTop = false,
       isBody = false,
       escaping = false,
       val;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (useBrackets === undefined)</span>
-<span class="cstat-no" title="statement not covered" >    useBrackets = true;</span>
-<span class="cstat-no" title="statement not covered" >  if (!result)</span>
-<span class="cstat-no" title="statement not covered" >    result = [];</span>
-<span class="cstat-no" title="statement not covered" >  if (typeof o === 'string') {</span>
-<span class="cstat-no" title="statement not covered" >    o = { str: o };</span>
-<span class="cstat-no" title="statement not covered" >    isTop = true;</span>
+<span class="cstat-no" title="statement not covered">  if (useBrackets === undefined)</span>
+<span class="cstat-no" title="statement not covered">    useBrackets = true;</span>
+<span class="cstat-no" title="statement not covered">  if (!result)</span>
+<span class="cstat-no" title="statement not covered">    result = [];</span>
+<span class="cstat-no" title="statement not covered">  if (typeof o === 'string') {</span>
+<span class="cstat-no" title="statement not covered">    o = { str: o };</span>
+<span class="cstat-no" title="statement not covered">    isTop = true;</span>
   }
-<span class="cstat-no" title="statement not covered" >  for (var i = start, len = o.str.length; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >    if (!inQuote) {</span>
-<span class="cstat-no" title="statement not covered" >      if (isBody) {</span>
-<span class="cstat-no" title="statement not covered" >        if (o.str[i] === ']') {</span>
-<span class="cstat-no" title="statement not covered" >          val = convStr(o.str.substring(lastPos + 1, i + 1), literals);</span>
-<span class="cstat-no" title="statement not covered" >          result.push(val);</span>
-<span class="cstat-no" title="statement not covered" >          lastPos = i;</span>
-<span class="cstat-no" title="statement not covered" >          isBody = false;</span>
+<span class="cstat-no" title="statement not covered">  for (var i = start, len = o.str.length; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">    if (!inQuote) {</span>
+<span class="cstat-no" title="statement not covered">      if (isBody) {</span>
+<span class="cstat-no" title="statement not covered">        if (o.str[i] === ']') {</span>
+<span class="cstat-no" title="statement not covered">          val = convStr(o.str.substring(lastPos + 1, i + 1), literals);</span>
+<span class="cstat-no" title="statement not covered">          result.push(val);</span>
+<span class="cstat-no" title="statement not covered">          lastPos = i;</span>
+<span class="cstat-no" title="statement not covered">          isBody = false;</span>
         }
-      } else <span class="cstat-no" title="statement not covered" >if (o.str[i] === '"')</span>
-<span class="cstat-no" title="statement not covered" >        inQuote = true;</span>
-      else <span class="cstat-no" title="statement not covered" >if (o.str[i] === ' '</span>
+      } else <span class="cstat-no" title="statement not covered">if (o.str[i] === '"')</span>
+<span class="cstat-no" title="statement not covered">        inQuote = true;</span>
+      else <span class="cstat-no" title="statement not covered">if (o.str[i] === ' '</span>
                || o.str[i] === ')'
                || (useBrackets &amp;&amp; o.str[i] === ']')) {
-<span class="cstat-no" title="statement not covered" >        if (i - (lastPos + 1) &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >          val = convStr(o.str.substring(lastPos + 1, i), literals);</span>
-<span class="cstat-no" title="statement not covered" >          result.push(val);</span>
+<span class="cstat-no" title="statement not covered">        if (i - (lastPos + 1) &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered">          val = convStr(o.str.substring(lastPos + 1, i), literals);</span>
+<span class="cstat-no" title="statement not covered">          result.push(val);</span>
         }
-<span class="cstat-no" title="statement not covered" >        if ((o.str[i] === ')' || (useBrackets &amp;&amp; o.str[i] === ']')) &amp;&amp; !isTop)</span>
-<span class="cstat-no" title="statement not covered" >          return i;</span>
-<span class="cstat-no" title="statement not covered" >        lastPos = i;</span>
-      } else <span class="cstat-no" title="statement not covered" >if ((o.str[i] === '(' || (useBrackets &amp;&amp; o.str[i] === '['))) {</span>
-<span class="cstat-no" title="statement not covered" >        if (o.str[i] === '['</span>
+<span class="cstat-no" title="statement not covered">        if ((o.str[i] === ')' || (useBrackets &amp;&amp; o.str[i] === ']')) &amp;&amp; !isTop)</span>
+<span class="cstat-no" title="statement not covered">          return i;</span>
+<span class="cstat-no" title="statement not covered">        lastPos = i;</span>
+      } else <span class="cstat-no" title="statement not covered">if ((o.str[i] === '(' || (useBrackets &amp;&amp; o.str[i] === '['))) {</span>
+<span class="cstat-no" title="statement not covered">        if (o.str[i] === '['</span>
             &amp;&amp; i - 4 &gt;= start
             &amp;&amp; o.str.substring(i - 4, i).toUpperCase() === 'BODY') {
-<span class="cstat-no" title="statement not covered" >          isBody = true;</span>
-<span class="cstat-no" title="statement not covered" >          lastPos = i - 5;</span>
+<span class="cstat-no" title="statement not covered">          isBody = true;</span>
+<span class="cstat-no" title="statement not covered">          lastPos = i - 5;</span>
         } else {
-<span class="cstat-no" title="statement not covered" >          var innerResult = [];</span>
-<span class="cstat-no" title="statement not covered" >          i = parseExpr(o, literals, innerResult, i + 1, useBrackets);</span>
-<span class="cstat-no" title="statement not covered" >          lastPos = i;</span>
-<span class="cstat-no" title="statement not covered" >          result.push(innerResult);</span>
+<span class="cstat-no" title="statement not covered">          var innerResult = [];</span>
+<span class="cstat-no" title="statement not covered">          i = parseExpr(o, literals, innerResult, i + 1, useBrackets);</span>
+<span class="cstat-no" title="statement not covered">          lastPos = i;</span>
+<span class="cstat-no" title="statement not covered">          result.push(innerResult);</span>
         }
       }
-    } else <span class="cstat-no" title="statement not covered" >if (o.str[i] === '\\')</span>
-<span class="cstat-no" title="statement not covered" >      escaping = !escaping;</span>
-    else <span class="cstat-no" title="statement not covered" >if (o.str[i] === '"') {</span>
-<span class="cstat-no" title="statement not covered" >      if (!escaping)</span>
-<span class="cstat-no" title="statement not covered" >        inQuote = false;</span>
-<span class="cstat-no" title="statement not covered" >      escaping = false;</span>
+    } else <span class="cstat-no" title="statement not covered">if (o.str[i] === '\\')</span>
+<span class="cstat-no" title="statement not covered">      escaping = !escaping;</span>
+    else <span class="cstat-no" title="statement not covered">if (o.str[i] === '"') {</span>
+<span class="cstat-no" title="statement not covered">      if (!escaping)</span>
+<span class="cstat-no" title="statement not covered">        inQuote = false;</span>
+<span class="cstat-no" title="statement not covered">      escaping = false;</span>
     }
-<span class="cstat-no" title="statement not covered" >    if (i + 1 === len &amp;&amp; len - (lastPos + 1) &gt; 0)</span>
-<span class="cstat-no" title="statement not covered" >      result.push(convStr(o.str.substring(lastPos + 1), literals));</span>
+<span class="cstat-no" title="statement not covered">    if (i + 1 === len &amp;&amp; len - (lastPos + 1) &gt; 0)</span>
+<span class="cstat-no" title="statement not covered">      result.push(convStr(o.str.substring(lastPos + 1), literals));</span>
   }
-<span class="cstat-no" title="statement not covered" >  return (isTop ? result : start);</span>
+<span class="cstat-no" title="statement not covered">  return (isTop ? result : start);</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function convStr(str, literals) {</span>
-<span class="cstat-no" title="statement not covered" >  if (str[0] === '"') {</span>
-<span class="cstat-no" title="statement not covered" >    str = str.substring(1, str.length - 1);</span>
-<span class="cstat-no" title="statement not covered" >    var newstr = '', isEscaping = false, p = 0;</span>
-<span class="cstat-no" title="statement not covered" >    for (var i = 0, len = str.length; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >      if (str[i] === '\\') {</span>
-<span class="cstat-no" title="statement not covered" >        if (!isEscaping)</span>
-<span class="cstat-no" title="statement not covered" >          isEscaping = true;</span>
+<span class="fstat-no" title="function not covered">function convStr(str, literals) {</span>
+<span class="cstat-no" title="statement not covered">  if (str[0] === '"') {</span>
+<span class="cstat-no" title="statement not covered">    str = str.substring(1, str.length - 1);</span>
+<span class="cstat-no" title="statement not covered">    var newstr = '', isEscaping = false, p = 0;</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0, len = str.length; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">      if (str[i] === '\\') {</span>
+<span class="cstat-no" title="statement not covered">        if (!isEscaping)</span>
+<span class="cstat-no" title="statement not covered">          isEscaping = true;</span>
         else {
-<span class="cstat-no" title="statement not covered" >          isEscaping = false;</span>
-<span class="cstat-no" title="statement not covered" >          newstr += str.substring(p, i - 1);</span>
-<span class="cstat-no" title="statement not covered" >          p = i;</span>
+<span class="cstat-no" title="statement not covered">          isEscaping = false;</span>
+<span class="cstat-no" title="statement not covered">          newstr += str.substring(p, i - 1);</span>
+<span class="cstat-no" title="statement not covered">          p = i;</span>
         }
-      } else <span class="cstat-no" title="statement not covered" >if (str[i] === '"') {</span>
-<span class="cstat-no" title="statement not covered" >        if (isEscaping) {</span>
-<span class="cstat-no" title="statement not covered" >          isEscaping = false;</span>
-<span class="cstat-no" title="statement not covered" >          newstr += str.substring(p, i - 1);</span>
-<span class="cstat-no" title="statement not covered" >          p = i;</span>
+      } else <span class="cstat-no" title="statement not covered">if (str[i] === '"') {</span>
+<span class="cstat-no" title="statement not covered">        if (isEscaping) {</span>
+<span class="cstat-no" title="statement not covered">          isEscaping = false;</span>
+<span class="cstat-no" title="statement not covered">          newstr += str.substring(p, i - 1);</span>
+<span class="cstat-no" title="statement not covered">          p = i;</span>
         }
       }
     }
-<span class="cstat-no" title="statement not covered" >    if (p === 0)</span>
-<span class="cstat-no" title="statement not covered" >      return str;</span>
+<span class="cstat-no" title="statement not covered">    if (p === 0)</span>
+<span class="cstat-no" title="statement not covered">      return str;</span>
     else {
-<span class="cstat-no" title="statement not covered" >      newstr += str.substring(p);</span>
-<span class="cstat-no" title="statement not covered" >      return newstr;</span>
+<span class="cstat-no" title="statement not covered">      newstr += str.substring(p);</span>
+<span class="cstat-no" title="statement not covered">      return newstr;</span>
     }
-  } else <span class="cstat-no" title="statement not covered" >if (str === 'NIL')</span>
-<span class="cstat-no" title="statement not covered" >    return null;</span>
-  else <span class="cstat-no" title="statement not covered" >if (RE_INTEGER.test(str)) {</span>
+  } else <span class="cstat-no" title="statement not covered">if (str === 'NIL')</span>
+<span class="cstat-no" title="statement not covered">    return null;</span>
+  else <span class="cstat-no" title="statement not covered">if (RE_INTEGER.test(str)) {</span>
     // some IMAP extensions utilize large (64-bit) integers, which JavaScript
     // can't handle natively, so we'll just keep it as a string if it's too big
-<span class="cstat-no" title="statement not covered" >    var val = parseInt(str, 10);</span>
-<span class="cstat-no" title="statement not covered" >    return (val.toString() === str ? val : str);</span>
-  } else <span class="cstat-no" title="statement not covered" >if (literals &amp;&amp; literals.length &amp;&amp; str === LITPLACEHOLDER) {</span>
-<span class="cstat-no" title="statement not covered" >    var l = literals.shift();</span>
-<span class="cstat-no" title="statement not covered" >    if (Buffer.isBuffer(l))</span>
-<span class="cstat-no" title="statement not covered" >      l = l.toString('utf8');</span>
-<span class="cstat-no" title="statement not covered" >    return l;</span>
+<span class="cstat-no" title="statement not covered">    var val = parseInt(str, 10);</span>
+<span class="cstat-no" title="statement not covered">    return (val.toString() === str ? val : str);</span>
+  } else <span class="cstat-no" title="statement not covered">if (literals &amp;&amp; literals.length &amp;&amp; str === LITPLACEHOLDER) {</span>
+<span class="cstat-no" title="statement not covered">    var l = literals.shift();</span>
+<span class="cstat-no" title="statement not covered">    if (Buffer.isBuffer(l))</span>
+<span class="cstat-no" title="statement not covered">      l = l.toString('utf8');</span>
+<span class="cstat-no" title="statement not covered">    return l;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return str;</span>
+<span class="cstat-no" title="statement not covered">  return str;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function repeat(chr, len) {</span>
-<span class="cstat-no" title="statement not covered" >  var s = '';</span>
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; len; ++i)</span>
-<span class="cstat-no" title="statement not covered" >    s += chr;</span>
-<span class="cstat-no" title="statement not covered" >  return s;</span>
+<span class="fstat-no" title="function not covered">function repeat(chr, len) {</span>
+<span class="cstat-no" title="statement not covered">  var s = '';</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; len; ++i)</span>
+<span class="cstat-no" title="statement not covered">    s += chr;</span>
+<span class="cstat-no" title="statement not covered">  return s;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function decodeBytes(buf, encoding, offset, mlen, pendoffset, state, nextBuf) {</span>
-<span class="cstat-no" title="statement not covered" >  if (!jsencoding)</span>
-<span class="cstat-no" title="statement not covered" >    jsencoding = require('../deps/encoding/encoding');</span>
-<span class="cstat-no" title="statement not covered" >  if (jsencoding.encodingExists(encoding)) {</span>
-<span class="cstat-no" title="statement not covered" >    if (state.buffer !== undefined) {</span>
-<span class="cstat-no" title="statement not covered" >      if (state.encoding === encoding &amp;&amp; state.consecutive) {</span>
+<span class="fstat-no" title="function not covered">function decodeBytes(buf, encoding, offset, mlen, pendoffset, state, nextBuf) {</span>
+<span class="cstat-no" title="statement not covered">  if (!jsencoding)</span>
+<span class="cstat-no" title="statement not covered">    jsencoding = require('../deps/encoding/encoding');</span>
+<span class="cstat-no" title="statement not covered">  if (jsencoding.encodingExists(encoding)) {</span>
+<span class="cstat-no" title="statement not covered">    if (state.buffer !== undefined) {</span>
+<span class="cstat-no" title="statement not covered">      if (state.encoding === encoding &amp;&amp; state.consecutive) {</span>
         // concatenate buffer + current bytes in hopes of finally having
         // something that's decodable
-<span class="cstat-no" title="statement not covered" >        var newbuf = new Buffer(state.buffer.length + buf.length);</span>
-<span class="cstat-no" title="statement not covered" >        state.buffer.copy(newbuf, 0);</span>
-<span class="cstat-no" title="statement not covered" >        buf.copy(newbuf, state.buffer.length);</span>
-<span class="cstat-no" title="statement not covered" >        buf = newbuf;</span>
+<span class="cstat-no" title="statement not covered">        var newbuf = new Buffer(state.buffer.length + buf.length);</span>
+<span class="cstat-no" title="statement not covered">        state.buffer.copy(newbuf, 0);</span>
+<span class="cstat-no" title="statement not covered">        buf.copy(newbuf, state.buffer.length);</span>
+<span class="cstat-no" title="statement not covered">        buf = newbuf;</span>
       } else {
         // either:
         //   - the current encoded word is not separated by the previous partial
         //     encoded word by linear whitespace, OR
         //   - the current encoded word and the previous partial encoded word
         //     use different encodings
-<span class="cstat-no" title="statement not covered" >        state.buffer = state.encoding = undefined;</span>
-<span class="cstat-no" title="statement not covered" >        state.curReplace = undefined;</span>
+<span class="cstat-no" title="statement not covered">        state.buffer = state.encoding = undefined;</span>
+<span class="cstat-no" title="statement not covered">        state.curReplace = undefined;</span>
       }
     }
-<span class="cstat-no" title="statement not covered" >    var ret, isPartial = false;</span>
-<span class="cstat-no" title="statement not covered" >    if (state.remainder !== undefined) {</span>
+<span class="cstat-no" title="statement not covered">    var ret, isPartial = false;</span>
+<span class="cstat-no" title="statement not covered">    if (state.remainder !== undefined) {</span>
       // use cached remainder from the previous lookahead
-<span class="cstat-no" title="statement not covered" >      ret = state.remainder;</span>
-<span class="cstat-no" title="statement not covered" >      state.remainder = undefined;</span>
+<span class="cstat-no" title="statement not covered">      ret = state.remainder;</span>
+<span class="cstat-no" title="statement not covered">      state.remainder = undefined;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        ret = jsencoding.TextDecoder(encoding).decode(buf);</span>
+<span class="cstat-no" title="statement not covered">      try {</span>
+<span class="cstat-no" title="statement not covered">        ret = jsencoding.TextDecoder(encoding).decode(buf);</span>
       } catch (e) {
-<span class="cstat-no" title="statement not covered" >        if (e.message.indexOf('Seeking') === 0)</span>
-<span class="cstat-no" title="statement not covered" >          isPartial = true;</span>
+<span class="cstat-no" title="statement not covered">        if (e.message.indexOf('Seeking') === 0)</span>
+<span class="cstat-no" title="statement not covered">          isPartial = true;</span>
       }
     }
-<span class="cstat-no" title="statement not covered" >    if (!isPartial &amp;&amp; nextBuf) {</span>
+<span class="cstat-no" title="statement not covered">    if (!isPartial &amp;&amp; nextBuf) {</span>
       // try to decode a lookahead buffer (current buffer + next buffer)
       // and see if it starts with the decoded value of the current buffer.
       // if not, the current buffer is partial
-<span class="cstat-no" title="statement not covered" >      var lookahead, lookaheadBuf = new Buffer(buf.length + nextBuf.length);</span>
-<span class="cstat-no" title="statement not covered" >      buf.copy(lookaheadBuf);</span>
-<span class="cstat-no" title="statement not covered" >      nextBuf.copy(lookaheadBuf, buf.length);</span>
-<span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        lookahead = jsencoding.TextDecoder(encoding).decode(lookaheadBuf);</span>
+<span class="cstat-no" title="statement not covered">      var lookahead, lookaheadBuf = new Buffer(buf.length + nextBuf.length);</span>
+<span class="cstat-no" title="statement not covered">      buf.copy(lookaheadBuf);</span>
+<span class="cstat-no" title="statement not covered">      nextBuf.copy(lookaheadBuf, buf.length);</span>
+<span class="cstat-no" title="statement not covered">      try {</span>
+<span class="cstat-no" title="statement not covered">        lookahead = jsencoding.TextDecoder(encoding).decode(lookaheadBuf);</span>
       } catch(e) {
         // cannot decode the lookahead, do nothing
       }
-<span class="cstat-no" title="statement not covered" >      if (lookahead !== undefined) {</span>
-<span class="cstat-no" title="statement not covered" >        if (lookahead.indexOf(ret) === 0) {</span>
+<span class="cstat-no" title="statement not covered">      if (lookahead !== undefined) {</span>
+<span class="cstat-no" title="statement not covered">        if (lookahead.indexOf(ret) === 0) {</span>
           // the current buffer is whole, cache the lookahead's remainder
-<span class="cstat-no" title="statement not covered" >          state.remainder = lookahead.substring(ret.length);</span>
+<span class="cstat-no" title="statement not covered">          state.remainder = lookahead.substring(ret.length);</span>
         } else {
-<span class="cstat-no" title="statement not covered" >          isPartial = true;</span>
-<span class="cstat-no" title="statement not covered" >          ret = undefined;</span>
+<span class="cstat-no" title="statement not covered">          isPartial = true;</span>
+<span class="cstat-no" title="statement not covered">          ret = undefined;</span>
         }
       }
     }
-<span class="cstat-no" title="statement not covered" >    if (ret !== undefined) {</span>
-<span class="cstat-no" title="statement not covered" >      if (state.curReplace) {</span>
+<span class="cstat-no" title="statement not covered">    if (ret !== undefined) {</span>
+<span class="cstat-no" title="statement not covered">      if (state.curReplace) {</span>
         // we have some previous partials which were finally "satisfied" by the
         // current encoded word, so replace from the beginning of the first
         // partial to the end of the current encoded word
-<span class="cstat-no" title="statement not covered" >        state.replaces.push({</span>
+<span class="cstat-no" title="statement not covered">        state.replaces.push({</span>
           fromOffset: state.curReplace[0].fromOffset,
           toOffset: offset + mlen,
           val: ret
         });
-<span class="cstat-no" title="statement not covered" >        state.replaces.splice(state.replaces.indexOf(state.curReplace), 1);</span>
-<span class="cstat-no" title="statement not covered" >        state.curReplace = undefined;</span>
+<span class="cstat-no" title="statement not covered">        state.replaces.splice(state.replaces.indexOf(state.curReplace), 1);</span>
+<span class="cstat-no" title="statement not covered">        state.curReplace = undefined;</span>
       } else {
         // normal case where there are no previous partials and we successfully
         // decoded a single encoded word
-<span class="cstat-no" title="statement not covered" >        state.replaces.push({</span>
+<span class="cstat-no" title="statement not covered">        state.replaces.push({</span>
           // we ignore linear whitespace between consecutive encoded words
           fromOffset: state.consecutive ? pendoffset : offset,
           toOffset: offset + mlen,
           val: ret
         });
       }
-<span class="cstat-no" title="statement not covered" >      state.buffer = state.encoding = undefined;</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
-    } else <span class="cstat-no" title="statement not covered" >if (isPartial) {</span>
+<span class="cstat-no" title="statement not covered">      state.buffer = state.encoding = undefined;</span>
+<span class="cstat-no" title="statement not covered">      return;</span>
+    } else <span class="cstat-no" title="statement not covered">if (isPartial) {</span>
       // RFC2047 says that each decoded encoded word "MUST represent an integral
       // number of characters. A multi-octet character may not be split across
       // adjacent encoded-words." However, some MUAs appear to go against this,
       // so we join broken encoded words separated by linear white space until
       // we can successfully decode or we see a change in encoding
-<span class="cstat-no" title="statement not covered" >      state.encoding = encoding;</span>
-<span class="cstat-no" title="statement not covered" >      state.buffer = buf;</span>
-<span class="cstat-no" title="statement not covered" >      if (!state.curReplace)</span>
-<span class="cstat-no" title="statement not covered" >        state.replaces.push(state.curReplace = []);</span>
-<span class="cstat-no" title="statement not covered" >      state.curReplace.push({</span>
+<span class="cstat-no" title="statement not covered">      state.encoding = encoding;</span>
+<span class="cstat-no" title="statement not covered">      state.buffer = buf;</span>
+<span class="cstat-no" title="statement not covered">      if (!state.curReplace)</span>
+<span class="cstat-no" title="statement not covered">        state.replaces.push(state.curReplace = []);</span>
+<span class="cstat-no" title="statement not covered">      state.curReplace.push({</span>
         fromOffset: offset,
         toOffset: offset + mlen,
         // the value we replace this encoded word with if it doesn't end up
         // becoming part of a successful decode
         val: repeat('\uFFFD', buf.length)
       });
-<span class="cstat-no" title="statement not covered" >      return;</span>
+<span class="cstat-no" title="statement not covered">      return;</span>
     }
   }
   // in case of unexpected error or unsupported encoding, just substitute the
   // raw bytes
-<span class="cstat-no" title="statement not covered" >  state.replaces.push({</span>
+<span class="cstat-no" title="statement not covered">  state.replaces.push({</span>
     fromOffset: offset,
     toOffset: offset + mlen,
     val: buf.toString('binary')
   });
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function qEncReplacer(match, byte) {</span>
-<span class="cstat-no" title="statement not covered" >  if (match === '_')</span>
-<span class="cstat-no" title="statement not covered" >    return ' ';</span>
+<span class="fstat-no" title="function not covered">function qEncReplacer(match, byte) {</span>
+<span class="cstat-no" title="statement not covered">  if (match === '_')</span>
+<span class="cstat-no" title="statement not covered">    return ' ';</span>
   else
-<span class="cstat-no" title="statement not covered" >    return String.fromCharCode(parseInt(byte, 16));</span>
+<span class="cstat-no" title="statement not covered">    return String.fromCharCode(parseInt(byte, 16));</span>
 }
-<span class="fstat-no" title="function not covered" >function decodeWords(str, state) {</span>
-<span class="cstat-no" title="statement not covered" >  var pendoffset = -1;</span>
+<span class="fstat-no" title="function not covered">function decodeWords(str, state) {</span>
+<span class="cstat-no" title="statement not covered">  var pendoffset = -1;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!state) {</span>
-<span class="cstat-no" title="statement not covered" >    state = {</span>
+<span class="cstat-no" title="statement not covered">  if (!state) {</span>
+<span class="cstat-no" title="statement not covered">    state = {</span>
       buffer: undefined,
       encoding: undefined,
       consecutive: false,
@@ -3154,13 +3152,13 @@ Parser.prototype._resContinue = <span class="fstat-no" title="function not cover
     };
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  state.replaces = [];</span>
+<span class="cstat-no" title="statement not covered">  state.replaces = [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var bytes, m, next, i, j, leni, lenj, seq, replaces = [], lastReplace = {};</span>
+<span class="cstat-no" title="statement not covered">  var bytes, m, next, i, j, leni, lenj, seq, replaces = [], lastReplace = {};</span>
 &nbsp;
   // join consecutive q-encoded words that have the same charset first
-<span class="cstat-no" title="statement not covered" >  while (m = RE_ENCWORD.exec(str)) {</span>
-<span class="cstat-no" title="statement not covered" >    seq = {</span>
+<span class="cstat-no" title="statement not covered">  while (m = RE_ENCWORD.exec(str)) {</span>
+<span class="cstat-no" title="statement not covered">    seq = {</span>
       consecutive: (pendoffset &gt; -1
                     ? RE_LWS_ONLY.test(str.substring(pendoffset, m.index))
                     : false),
@@ -3172,64 +3170,64 @@ Parser.prototype._resContinue = <span class="fstat-no" title="function not cover
       pendoffset: pendoffset,
       buf: undefined
     };
-<span class="cstat-no" title="statement not covered" >    lastReplace = replaces.length &amp;&amp; replaces[replaces.length - 1];</span>
-<span class="cstat-no" title="statement not covered" >    if (seq.consecutive</span>
+<span class="cstat-no" title="statement not covered">    lastReplace = replaces.length &amp;&amp; replaces[replaces.length - 1];</span>
+<span class="cstat-no" title="statement not covered">    if (seq.consecutive</span>
         &amp;&amp; seq.charset === lastReplace.charset
         &amp;&amp; seq.encoding === lastReplace.encoding
         &amp;&amp; seq.encoding === 'q') {
-<span class="cstat-no" title="statement not covered" >      lastReplace.length += seq.length + seq.index - pendoffset;</span>
-<span class="cstat-no" title="statement not covered" >      lastReplace.chunk += seq.chunk;</span>
+<span class="cstat-no" title="statement not covered">      lastReplace.length += seq.length + seq.index - pendoffset;</span>
+<span class="cstat-no" title="statement not covered">      lastReplace.chunk += seq.chunk;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      replaces.push(seq);</span>
-<span class="cstat-no" title="statement not covered" >      lastReplace = seq;</span>
+<span class="cstat-no" title="statement not covered">      replaces.push(seq);</span>
+<span class="cstat-no" title="statement not covered">      lastReplace = seq;</span>
     }
-<span class="cstat-no" title="statement not covered" >    pendoffset = m.index + m[0].length;</span>
+<span class="cstat-no" title="statement not covered">    pendoffset = m.index + m[0].length;</span>
   }
 &nbsp;
   // generate replacement substrings and their positions
-<span class="cstat-no" title="statement not covered" >  for (i = 0, leni = replaces.length; i &lt; leni; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >    m = replaces[i];</span>
-<span class="cstat-no" title="statement not covered" >    state.consecutive = m.consecutive;</span>
-<span class="cstat-no" title="statement not covered" >    if (m.encoding === 'q') {</span>
+<span class="cstat-no" title="statement not covered">  for (i = 0, leni = replaces.length; i &lt; leni; ++i) {</span>
+<span class="cstat-no" title="statement not covered">    m = replaces[i];</span>
+<span class="cstat-no" title="statement not covered">    state.consecutive = m.consecutive;</span>
+<span class="cstat-no" title="statement not covered">    if (m.encoding === 'q') {</span>
       // q-encoding, similar to quoted-printable
-<span class="cstat-no" title="statement not covered" >      bytes = new Buffer(m.chunk.replace(RE_QENC, qEncReplacer), 'binary');</span>
-<span class="cstat-no" title="statement not covered" >      next = undefined;</span>
+<span class="cstat-no" title="statement not covered">      bytes = new Buffer(m.chunk.replace(RE_QENC, qEncReplacer), 'binary');</span>
+<span class="cstat-no" title="statement not covered">      next = undefined;</span>
     } else {
       // base64
-<span class="cstat-no" title="statement not covered" >      bytes = m.buf || new Buffer(m.chunk, 'base64');</span>
-<span class="cstat-no" title="statement not covered" >      next = replaces[i + 1];</span>
-<span class="cstat-no" title="statement not covered" >      if (next &amp;&amp; next.consecutive &amp;&amp; next.encoding === m.encoding</span>
+<span class="cstat-no" title="statement not covered">      bytes = m.buf || new Buffer(m.chunk, 'base64');</span>
+<span class="cstat-no" title="statement not covered">      next = replaces[i + 1];</span>
+<span class="cstat-no" title="statement not covered">      if (next &amp;&amp; next.consecutive &amp;&amp; next.encoding === m.encoding</span>
         &amp;&amp; next.charset === m.charset) {
         // we use the next base64 chunk, if any, to determine the integrity
         // of the current chunk
-<span class="cstat-no" title="statement not covered" >        next.buf = new Buffer(next.chunk, 'base64');</span>
+<span class="cstat-no" title="statement not covered">        next.buf = new Buffer(next.chunk, 'base64');</span>
       }
     }
-<span class="cstat-no" title="statement not covered" >    decodeBytes(bytes, m.charset, m.index, m.length, m.pendoffset, state,</span>
+<span class="cstat-no" title="statement not covered">    decodeBytes(bytes, m.charset, m.index, m.length, m.pendoffset, state,</span>
       next &amp;&amp; next.buf);
   }
 &nbsp;
   // perform the actual replacements
-<span class="cstat-no" title="statement not covered" >  for (i = state.replaces.length - 1; i &gt;= 0; --i) {</span>
-<span class="cstat-no" title="statement not covered" >    seq = state.replaces[i];</span>
-<span class="cstat-no" title="statement not covered" >    if (Array.isArray(seq)) {</span>
-<span class="cstat-no" title="statement not covered" >      for (j = 0, lenj = seq.length; j &lt; lenj; ++j) {</span>
-<span class="cstat-no" title="statement not covered" >        str = str.substring(0, seq[j].fromOffset)</span>
+<span class="cstat-no" title="statement not covered">  for (i = state.replaces.length - 1; i &gt;= 0; --i) {</span>
+<span class="cstat-no" title="statement not covered">    seq = state.replaces[i];</span>
+<span class="cstat-no" title="statement not covered">    if (Array.isArray(seq)) {</span>
+<span class="cstat-no" title="statement not covered">      for (j = 0, lenj = seq.length; j &lt; lenj; ++j) {</span>
+<span class="cstat-no" title="statement not covered">        str = str.substring(0, seq[j].fromOffset)</span>
               + seq[j].val
               + str.substring(seq[j].toOffset);
       }
     } else {
-<span class="cstat-no" title="statement not covered" >      str = str.substring(0, seq.fromOffset)</span>
+<span class="cstat-no" title="statement not covered">      str = str.substring(0, seq.fromOffset)</span>
             + seq.val
             + str.substring(seq.toOffset);
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return str;</span>
+<span class="cstat-no" title="statement not covered">  return str;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function parseHeader(str, noDecode) {</span>
-<span class="cstat-no" title="statement not covered" >  var lines = str.split(RE_CRLF),</span>
+<span class="fstat-no" title="function not covered">function parseHeader(str, noDecode) {</span>
+<span class="cstat-no" title="statement not covered">  var lines = str.split(RE_CRLF),</span>
       len = lines.length,
       header = {},
       state = {
@@ -3242,48 +3240,48 @@ Parser.prototype._resContinue = <span class="fstat-no" title="function not cover
       },
       m, h, i, val;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (i = 0; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >    if (lines[i].length === 0)</span>
-<span class="cstat-no" title="statement not covered" >      break; </span>// empty line separates message's header and body
-<span class="cstat-no" title="statement not covered" >    if (lines[i][0] === '\t' || lines[i][0] === ' ') {</span>
-<span class="cstat-no" title="statement not covered" >      if (!Array.isArray(header[h]))</span>
-<span class="cstat-no" title="statement not covered" >        continue; </span>// ignore invalid first line
+<span class="cstat-no" title="statement not covered">  for (i = 0; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered">    if (lines[i].length === 0)</span>
+<span class="cstat-no" title="statement not covered">      break; </span>// empty line separates message's header and body
+<span class="cstat-no" title="statement not covered">    if (lines[i][0] === '\t' || lines[i][0] === ' ') {</span>
+<span class="cstat-no" title="statement not covered">      if (!Array.isArray(header[h]))</span>
+<span class="cstat-no" title="statement not covered">        continue; </span>// ignore invalid first line
       // folded header content
-<span class="cstat-no" title="statement not covered" >      val = lines[i];</span>
-<span class="cstat-no" title="statement not covered" >      if (!noDecode) {</span>
-<span class="cstat-no" title="statement not covered" >        if (RE_ENCWORD_END.test(lines[i - 1])</span>
+<span class="cstat-no" title="statement not covered">      val = lines[i];</span>
+<span class="cstat-no" title="statement not covered">      if (!noDecode) {</span>
+<span class="cstat-no" title="statement not covered">        if (RE_ENCWORD_END.test(lines[i - 1])</span>
             &amp;&amp; RE_ENCWORD_BEGIN.test(val)) {
           // RFC2047 says to *ignore* leading whitespace in folded header values
           // for adjacent encoded-words ...
-<span class="cstat-no" title="statement not covered" >          val = val.substring(1);</span>
+<span class="cstat-no" title="statement not covered">          val = val.substring(1);</span>
         }
       }
-<span class="cstat-no" title="statement not covered" >      header[h][header[h].length - 1] += val;</span>
+<span class="cstat-no" title="statement not covered">      header[h][header[h].length - 1] += val;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      m = RE_HDR.exec(lines[i]);</span>
-<span class="cstat-no" title="statement not covered" >      if (m) {</span>
-<span class="cstat-no" title="statement not covered" >        h = m[1].toLowerCase().trim();</span>
-<span class="cstat-no" title="statement not covered" >        if (m[2]) {</span>
-<span class="cstat-no" title="statement not covered" >          if (header[h] === undefined)</span>
-<span class="cstat-no" title="statement not covered" >            header[h] = [m[2]];</span>
+<span class="cstat-no" title="statement not covered">      m = RE_HDR.exec(lines[i]);</span>
+<span class="cstat-no" title="statement not covered">      if (m) {</span>
+<span class="cstat-no" title="statement not covered">        h = m[1].toLowerCase().trim();</span>
+<span class="cstat-no" title="statement not covered">        if (m[2]) {</span>
+<span class="cstat-no" title="statement not covered">          if (header[h] === undefined)</span>
+<span class="cstat-no" title="statement not covered">            header[h] = [m[2]];</span>
           else
-<span class="cstat-no" title="statement not covered" >            header[h].push(m[2]);</span>
+<span class="cstat-no" title="statement not covered">            header[h].push(m[2]);</span>
         } else
-<span class="cstat-no" title="statement not covered" >          header[h] = [''];</span>
+<span class="cstat-no" title="statement not covered">          header[h] = [''];</span>
       } else
-<span class="cstat-no" title="statement not covered" >        break;</span>
+<span class="cstat-no" title="statement not covered">        break;</span>
     }
   }
-<span class="cstat-no" title="statement not covered" >  if (!noDecode) {</span>
-<span class="cstat-no" title="statement not covered" >    var hvs;</span>
-<span class="cstat-no" title="statement not covered" >    for (h in header) {</span>
-<span class="cstat-no" title="statement not covered" >      hvs = header[h];</span>
-<span class="cstat-no" title="statement not covered" >      for (i = 0, len = header[h].length; i &lt; len; ++i)</span>
-<span class="cstat-no" title="statement not covered" >        hvs[i] = decodeWords(hvs[i], state);</span>
+<span class="cstat-no" title="statement not covered">  if (!noDecode) {</span>
+<span class="cstat-no" title="statement not covered">    var hvs;</span>
+<span class="cstat-no" title="statement not covered">    for (h in header) {</span>
+<span class="cstat-no" title="statement not covered">      hvs = header[h];</span>
+<span class="cstat-no" title="statement not covered">      for (i = 0, len = header[h].length; i &lt; len; ++i)</span>
+<span class="cstat-no" title="statement not covered">        hvs[i] = decodeWords(hvs[i], state);</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return header;</span>
+<span class="cstat-no" title="statement not covered">  return header;</span>
 }
 &nbsp;
 exports.Parser = Parser;
@@ -3293,10 +3291,11 @@ exports.parseBodyStructure = parseBodyStructure;
 exports.parseHeader = parseHeader;
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 17:04:10 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 20:55:38 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
