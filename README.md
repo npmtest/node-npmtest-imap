@@ -1,6 +1,6 @@
 # npmtest-imap
 
-#### test coverage for  [imap (v0.8.19)](https://github.com/mscdex/node-imap#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-imap.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-imap) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-imap.svg)](https://travis-ci.org/npmtest/node-npmtest-imap)
+#### basic test coverage for  [imap (v0.8.19)](https://github.com/mscdex/node-imap#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-imap.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-imap) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-imap.svg)](https://travis-ci.org/npmtest/node-npmtest-imap)
 
 #### An IMAP module for node.js that makes communicating with IMAP servers easy
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-imap/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-imap/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-imap/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-imap/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-imap/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-imap/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-imap/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-imap/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-imap/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-imap/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-imap/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-imap/build/coverage.html/index.html)
 
@@ -84,7 +84,8 @@
     "scripts": {
         "test": "node test/test.js"
     },
-    "version": "0.8.19"
+    "version": "0.8.19",
+    "bin": {}
 }
 ```
 
